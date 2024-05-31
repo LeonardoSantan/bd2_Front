@@ -1,5 +1,3 @@
-/* Please ❤ this if you like it! */
-
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900");
 
 body {
@@ -135,6 +133,7 @@ h4 {
 }
 
 .form-group input:-ms-input-placeholder {
+  position: relative;
   color: #c4c3ca;
   opacity: 0.7;
   -webkit-transition: all 200ms linear;
