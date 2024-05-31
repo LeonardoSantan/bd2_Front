@@ -8,8 +8,7 @@
   <link rel="stylesheet" href="css/register.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="js/login.js"></script>
-  <title>Login</title>
+  <title>Register</title>
 </head>
 
 <body>
@@ -71,7 +70,7 @@
                         </div>
                       </div>
                     </div>
-                    <a href="login.html" class="btn mt-4">Submit</a>
+                    <a href="#" onclick="submitRegisterForm()" class="btn mt-4">Submit</a>
                   </div>
                 </div>
               </div>
@@ -80,6 +79,32 @@
         </div>
       </div>
     </div>
+  </div>
+  <script>
+    function getQueryParams() {
+      const params = new URLSearchParams(window.location.search);
+      return {
+        logname: params.get('logname'),
+        logemail: params.get('logemail'),
+        logpass: params.get('logpass')
+      };
+    }
+
+    function populateInputs() {
+      const params = getQueryParams();
+      if (params.logname) document.getElementById('nome').value = params.logname;
+      if (params.logemail) document.getElementById('logemail').value = params.logemail;
+      if (params.logpass) document.getElementById('logpass').value = params.logpass;
+    }
+
+    function submitRegisterForm() {
+      const email = document.getElementById('logemail').value;
+      const password = document.getElementById('logpass').value;
+      window.location.href = `login.html?logemail=${encodeURIComponent(email)}&logpass=${encodeURIComponent(password)}`;
+    }
+
+    window.onload = populateInputs;
+  </script>
 </body>
 
 </html>

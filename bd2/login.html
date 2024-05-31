@@ -6,9 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/login.css">
-  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"> <!-- Adicionado -->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="js/login.js"></script>
   <title>Login</title>
 </head>
 
@@ -28,16 +27,16 @@
                     <div class="section text-center">
                       <h4 class="mb-4 pb-3">Log In</h4>
                       <div class="form-group">
-                        <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail"
+                        <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="login-email"
                           autocomplete="off">
                         <i class="input-icon uil uil-at"></i>
                       </div>
                       <div class="form-group mt-2">
                         <input type="password" name="logpass" class="form-style" placeholder="Your Password"
-                          id="logpass" autocomplete="off">
+                          id="login-password" autocomplete="off">
                         <i class="input-icon uil uil-lock-alt"></i>
                       </div>
-                      <a href="main.html" class="btn mt-4">submit</a>
+                      <a href="#" onclick="submitForm()" class="btn mt-4">Submit</a>
                       <p class="mb-0 mt-4 text-center"><a href="#0" class="link">Forgot your password?</a></p>
                     </div>
                   </div>
@@ -47,21 +46,21 @@
                     <div class="section text-center">
                       <h4 class="mb-4 pb-3">Sign Up</h4>
                       <div class="form-group">
-                        <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname"
-                          autocomplete="off">
+                        <input type="text" name="logname" class="form-style" placeholder="Your Full Name"
+                          id="register-name" autocomplete="off">
                         <i class="input-icon uil uil-user"></i>
                       </div>
                       <div class="form-group mt-2">
-                        <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail"
-                          autocomplete="off">
+                        <input type="email" name="logemail" class="form-style" placeholder="Your Email"
+                          id="register-email" autocomplete="off">
                         <i class="input-icon uil uil-at"></i>
                       </div>
                       <div class="form-group mt-2">
                         <input type="password" name="logpass" class="form-style" placeholder="Your Password"
-                          id="logpass" autocomplete="off">
+                          id="register-password" autocomplete="off">
                         <i class="input-icon uil uil-lock-alt"></i>
                       </div>
-                      <a href="register.html" class="btn mt-4">submit</a>
+                      <a href="#" onclick="submitSignUpForm()" class="btn mt-4">Submit</a>
                     </div>
                   </div>
                 </div>
@@ -72,6 +71,37 @@
       </div>
     </div>
   </div>
+  <script>
+    function submitForm() {
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+      window.location.href = `main.html?logemail=${encodeURIComponent(email)}&logpass=${encodeURIComponent(password)}`;
+    }
+
+    function submitSignUpForm() {
+      const name = document.getElementById('register-name').value;
+      const email = document.getElementById('register-email').value;
+      const password = document.getElementById('register-password').value;
+      window.location.href = `register.html?logname=${encodeURIComponent(name)}&logemail=${encodeURIComponent(email)}&logpass=${encodeURIComponent(password)}`;
+    }
+
+    function populateInputs() {
+      const params = getQueryParams();
+      if (params.logemail) document.getElementById('login-email').value = params.logemail;
+      if (params.logpass) document.getElementById('login-password').value = params.logpass;
+    }
+
+    window.onload = populateInputs;
+
+    function getQueryParams() {
+      const params = {};
+      window.location.search.replace(/^\?/, '').split('&').forEach(pair => {
+        const [key, value] = pair.split('=');
+        params[key] = decodeURIComponent(value);
+      });
+      return params;
+    }
+  </script>
 </body>
 
 </html>
