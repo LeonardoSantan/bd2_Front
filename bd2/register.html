@@ -89,20 +89,17 @@
         logpass: params.get('logpass')
       };
     }
-
     function populateInputs() {
       const params = getQueryParams();
       if (params.logname) document.getElementById('nome').value = params.logname;
       if (params.logemail) document.getElementById('logemail').value = params.logemail;
       if (params.logpass) document.getElementById('logpass').value = params.logpass;
     }
-
     function submitRegisterForm() {
       const email = document.getElementById('logemail').value;
       const password = document.getElementById('logpass').value;
       window.location.href = `login.html?logemail=${encodeURIComponent(email)}&logpass=${encodeURIComponent(password)}`;
     }
-
     window.onload = populateInputs;
   </script>
 </body>
