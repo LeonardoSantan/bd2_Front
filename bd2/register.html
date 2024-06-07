@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/register.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script defer src="js/login.js"></script>
   <title>Register</title>
 </head>
 
@@ -33,16 +34,16 @@
                         <div class="form-group position-relative">
                           <input type="text" name="cpf" class="form-style" placeholder="CPF - Apenas Números" id="cpf"
                             autocomplete="on">
-                          <i class="input-icon uil uil-file-check "></i>
+                          <i class="input-icon uil uil-file-check"></i>
                         </div>
                         <div class="form-group position-relative">
-                          <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail"
+                          <input type="email" name="regemail" class="form-style" placeholder="Your Email" id="regemail"
                             autocomplete="on">
                           <i class="input-icon uil uil-at"></i>
                         </div>
                         <div class="form-group position-relative mt-2">
-                          <input type="password" name="logpass" class="form-style" placeholder="Your Password"
-                            id="logpass" autocomplete="on">
+                          <input type="password" name="regpass" class="form-style" placeholder="Your Password"
+                            id="regpass" autocomplete="on">
                           <i class="input-icon uil uil-lock-alt"></i>
                         </div>
                       </div>
@@ -70,7 +71,7 @@
                         </div>
                       </div>
                     </div>
-                    <a href="#" onclick="submitRegisterForm()" class="btn mt-4">Submit</a>
+                    <a href="#" class="btn mt-4" id="btn-registro">Submit</a>
                   </div>
                 </div>
               </div>
@@ -80,28 +81,6 @@
       </div>
     </div>
   </div>
-  <script>
-    function getQueryParams() {
-      const params = new URLSearchParams(window.location.search);
-      return {
-        logname: params.get('logname'),
-        logemail: params.get('logemail'),
-        logpass: params.get('logpass')
-      };
-    }
-    function populateInputs() {
-      const params = getQueryParams();
-      if (params.logname) document.getElementById('nome').value = params.logname;
-      if (params.logemail) document.getElementById('logemail').value = params.logemail;
-      if (params.logpass) document.getElementById('logpass').value = params.logpass;
-    }
-    function submitRegisterForm() {
-      const email = document.getElementById('logemail').value;
-      const password = document.getElementById('logpass').value;
-      window.location.href = `login.html?logemail=${encodeURIComponent(email)}&logpass=${encodeURIComponent(password)}`;
-    }
-    window.onload = populateInputs;
-  </script>
 </body>
 
 </html>

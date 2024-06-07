@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/login.css">
   <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
   <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+  <script defer src="js/login.js"></script>
   <title>Login</title>
 </head>
 
@@ -17,8 +18,7 @@
       <div class="row full-height justify-content-center">
         <div class="col-12 text-center align-self-center py-5">
           <div class="section pb-5 pt-5 pt-sm-2 text-center">
-            <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign
-                Up</span></h6>
+            <h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
             <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
             <label for="reg-log"></label>
             <div class="card-3d-wrap mx-auto">
@@ -61,7 +61,7 @@
                           id="register-password" autocomplete="off">
                         <i class="input-icon uil uil-lock-alt"></i>
                       </div>
-                      <a href="#" onclick="submitSignUpForm()" class="btn mt-4">Submit</a>
+                      <a href="register.html" class="btn mt-4">Submit</a>
                     </div>
                   </div>
                 </div>
@@ -72,33 +72,6 @@
       </div>
     </div>
   </div>
-  <script>
-    function submitForm() {
-      const email = document.getElementById('login-email').value;
-      const password = document.getElementById('login-password').value;
-      window.location.href = `main.html?logemail=${encodeURIComponent(email)}&logpass=${encodeURIComponent(password)}`;
-    }
-    function submitSignUpForm() {
-      const name = document.getElementById('register-name').value;
-      const email = document.getElementById('register-email').value;
-      const password = document.getElementById('register-password').value;
-      window.location.href = `register.html?logname=${encodeURIComponent(name)}&logemail=${encodeURIComponent(email)}&logpass=${encodeURIComponent(password)}`;
-    }
-    function populateInputs() {
-      const params = getQueryParams();
-      if (params.logemail) document.getElementById('login-email').value = params.logemail;
-      if (params.logpass) document.getElementById('login-password').value = params.logpass;
-    }
-    window.onload = populateInputs;
-    function getQueryParams() {
-      const params = {};
-      window.location.search.replace(/^\?/, '').split('&').forEach(pair => {
-        const [key, value] = pair.split('=');
-        params[key] = decodeURIComponent(value);
-      });
-      return params;
-    }
-  </script>
 </body>
 
 </html>
