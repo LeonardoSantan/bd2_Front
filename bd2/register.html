@@ -1,77 +1,91 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/register.css">
-  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-  <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <script defer src="node_modules/bootstrap/js/login.js"></script>
-  <title>Register</title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/register.css">
+    <link rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script defer src="node_modules/bootstrap/js/login.js"></script>
+    <script defer src="register.js"></script>
+    <script defer
+      src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <title>Register</title>
+  </head>
 
-<body>
-  <div class="section">
-    <div class="container">
-      <div class="col-12 text-center align-self-center">
-        <div class="section pb-5 pt-5 pt-sm-2 text-center">
-          <div class="card-3d-wrap mx-auto">
-            <div class="card-3d-wrapper">
-              <div class="card-front">
-                <div class="center-wrap">
-                  <div class="section text-center">
-                    <h4 class="mb-4 pb-3">Quase lá!</h4>
-                    <div class="salvleo">
-                      <div class="mb-4 pb-3 salvpaul">
-                        <h4 class="mb-4 pb-3">Informações Pessoais</h4>
-                        <div class="form-group position-relative">
-                          <input type="text" name="nome" class="form-style" placeholder="Nome Completo" id="nome"
-                            autocomplete="on">
-                          <i class="input-icon uil uil-user"></i>
+  <body>
+    <div class="section">
+      <div class="container">
+        <div class="col-12 text-center align-self-center">
+          <div class="section pb-5 pt-5 pt-sm-2 text-center">
+            <div class="card-3d-wrap mx-auto">
+              <div class="card-3d-wrapper">
+                <div class="card-front">
+                  <div class="center-wrap">
+                    <div class="section text-center">
+                      <h4 class="mb-4 pb-3">Quase lá!</h4>
+                      <div class="salvleo">
+                        <div class="mb-4 pb-3 salvpaul">
+                          <h4 class="mb-4 pb-3">Informações Pessoais</h4>
+                          <div class="form-group position-relative">
+                            <input type="text" name="nome" class="form-style"
+                              placeholder="Nome Completo" id="nome"
+                              autocomplete="on">
+                            <i class="input-icon uil uil-user"></i>
+                          </div>
+                          <div class="form-group position-relative">
+                            <input type="text" name="cpf" class="form-style"
+                              placeholder="CPF - Apenas Números" id="cpf"
+                              autocomplete="on">
+                            <i class="input-icon uil uil-file-check"></i>
+                          </div>
+                          <div class="form-group position-relative">
+                            <input type="email" name="regemail"
+                              class="form-style" placeholder="Your Email"
+                              id="regemail"
+                              autocomplete="on">
+                            <i class="input-icon uil uil-at"></i>
+                          </div>
+                          <div class="form-group position-relative mt-2">
+                            <input type="password" name="regpass"
+                              class="form-style" placeholder="Your Password"
+                              id="regpass" autocomplete="on">
+                            <i class="input-icon uil uil-lock-alt"></i>
+                          </div>
                         </div>
-                        <div class="form-group position-relative">
-                          <input type="text" name="cpf" class="form-style" placeholder="CPF - Apenas Números" id="cpf"
-                            autocomplete="on">
-                          <i class="input-icon uil uil-file-check"></i>
-                        </div>
-                        <div class="form-group position-relative">
-                          <input type="email" name="regemail" class="form-style" placeholder="Your Email" id="regemail"
-                            autocomplete="on">
-                          <i class="input-icon uil uil-at"></i>
-                        </div>
-                        <div class="form-group position-relative mt-2">
-                          <input type="password" name="regpass" class="form-style" placeholder="Your Password"
-                            id="regpass" autocomplete="on">
-                          <i class="input-icon uil uil-lock-alt"></i>
+                        <div class="mb-4 pb-3 salvpaul">
+                          <h4 class="mb-4 pb-3">Endereço</h4>
+                          <div class="form-group position-relative">
+                            <input type="text" name="logradouro"
+                              class="form-style" placeholder="Logradouro"
+                              id="logradouro" autocomplete="on">
+                            <i class="input-icon uil uil-map"></i>
+                          </div>
+                          <div class="form-group position-relative">
+                            <input type="text" name="numero" class="form-style"
+                              placeholder="Número" id="numero"
+                              autocomplete="on">
+                            <i class="input-icon uil uil-home"></i>
+                          </div>
+                          <div class="form-group position-relative">
+                            <input type="text" name="CEP" class="form-style"
+                              placeholder="CEP - Apenas Numeros" id="CEP"
+                              autocomplete="on">
+                            <i class="input-icon uil uil-map-marker-alt"></i>
+                          </div>
+                          <div class="form-group position-relative mt-2">
+                            <input type="text" name="bairro" class="form-style"
+                              placeholder="Bairro" id="bairro"
+                              autocomplete="on">
+                            <i class="input-icon uil uil-compass"></i>
+                          </div>
                         </div>
                       </div>
-                      <div class="mb-4 pb-3 salvpaul">
-                        <h4 class="mb-4 pb-3">Endereço</h4>
-                        <div class="form-group position-relative">
-                          <input type="text" name="logradouro" class="form-style" placeholder="Logradouro"
-                            id="logradouro" autocomplete="on">
-                          <i class="input-icon uil uil-map"></i>
-                        </div>
-                        <div class="form-group position-relative">
-                          <input type="text" name="numero" class="form-style" placeholder="Número" id="numero"
-                            autocomplete="on">
-                          <i class="input-icon uil uil-home"></i>
-                        </div>
-                        <div class="form-group position-relative">
-                          <input type="text" name="CEP" class="form-style" placeholder="CEP - Apenas Numeros" id="CEP"
-                            autocomplete="on">
-                          <i class="input-icon uil uil-map-marker-alt"></i>
-                        </div>
-                        <div class="form-group position-relative mt-2">
-                          <input type="text" name="bairro" class="form-style" placeholder="Bairro" id="bairro"
-                            autocomplete="on">
-                          <i class="input-icon uil uil-compass"></i>
-                        </div>
-                      </div>
+                      <a href="#" class="btn mt-4" id="btn-registro">Submit</a>
                     </div>
-                    <a href="#" class="btn mt-4" id="btn-registro">Submit</a>
                   </div>
                 </div>
               </div>
@@ -80,7 +94,6 @@
         </div>
       </div>
     </div>
-  </div>
-</body>
+  </body>
 
 </html>
