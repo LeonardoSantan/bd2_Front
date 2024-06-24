@@ -1,5 +1,3 @@
-console.log("entrou aqui");
-
 document.addEventListener("DOMContentLoaded", () => {
   const urlProdutoIndividual = `https://smsfranciscobeltrao.com.br/produtos/${localStorage.getItem(
     "currentProduto"
@@ -29,6 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
       fornecedor.textContent = data.fornecedor;
       descricao.textContent = data.descricao;
       imagem.src = data.imagem;
+
+      // Save product quantity to localStorage
+      localStorage.setItem("produtoQuantidade", data.quantidade);
     })
     .catch((error) => console.error(error));
 });
@@ -44,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((response) => {
       console.log(response.data);
 
-      let formasPagamento = response.data; // Obtém diretamente os dados da resposta
+      let formasPagamento = response.data;
 
       let selectFormaPagamento = document.querySelector("#formaPagamento");
       formasPagamento.forEach((forma) => {
@@ -65,24 +66,46 @@ document.getElementById("btnComprar").addEventListener("click", () => {
   axios.defaults.headers.common["user"] = userId;
 
   const codigoProduto = localStorage.getItem("currentProduto");
-  const quantidadeVenda = document.getElementById("quantidadeVenda").value; // Captura a quantidade inserida pelo usuário
+  const quantidadeVenda = document.getElementById("quantidadeVenda").value;
   const formaPagamento = document.querySelector("#formaPagamento").value;
 
-  const dadosCompra = {
-    codigo_produto: codigoProduto,
-    quantidade: quantidadeVenda,
-    usuario: userId,
-    forma_pagamento: formaPagamento,
-  };
+  const quantidadeDisponivel = localStorage.getItem("produtoQuantidade");
 
-  axios
-    .post(urlCompra, dadosCompra)
-    .then((response) => {
-      console.log("Compra realizada com sucesso:", response.data);
-      // Lógica adicional após a compra ser realizada, se necessário
-    })
-    .catch((error) => {
-      console.error("Erro ao realizar a compra:", error);
-      // Tratamento de erros
-    });
+  if (parseInt(quantidadeVenda) > parseInt(quantidadeDisponivel)) {
+    console.log("Quantidade solicitada maior do que disponível");
+    const myModalAlternative = new bootstrap.Modal(
+      document.getElementById("ModalErro"),
+      {
+        backdrop: true,
+        keyboard: true,
+        focus: true,
+      }
+    );
+    myModalAlternative.show();
+  } else {
+    const myModalAlternative = new bootstrap.Modal(
+      document.getElementById("ModalSucesso"),
+      {
+        backdrop: true,
+        keyboard: true,
+        focus: true,
+      }
+    );
+    myModalAlternative.show();
+    const dadosCompra = {
+      codigo_produto: codigoProduto,
+      quantidade: quantidadeVenda,
+      usuario: userId,
+      forma_pagamento: formaPagamento,
+    };
+
+    axios
+      .post(urlCompra, dadosCompra)
+      .then((response) => {
+        console.log("Compra realizada com sucesso:", response.data);
+      })
+      .catch((error) => {
+        console.error("Erro ao realizar a compra:", error);
+      });
+  }
 });
