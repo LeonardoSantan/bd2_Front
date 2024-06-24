@@ -1,16 +1,16 @@
-// main.js
-
 console.log("Script main.js carregado");
 
-const url = "http://127.0.0.1:5000";
+const url = "https://smsfranciscobeltrao.com.br";
 const urlProdutos = `${url}/produtos/`;
 
 function getProdutos() {
   console.log("Função getProdutos chamada");
+  axios.defaults.headers.user = localStorage.getItem("id");
   axios
     .get(urlProdutos)
     .then((response) => {
       console.log("Dados recebidos:", response.data);
+      console.log(response)
       const produtos = response.data;
       const produtosContainer = document.querySelector(".produtos");
       produtosContainer.innerHTML = "";
