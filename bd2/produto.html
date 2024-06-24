@@ -69,13 +69,14 @@
             <form>
               <fieldset class="pagamento-opcao">
                 <legend>Forma de Pagamento</legend>
-                <select class="btn btn-warning" id="formaPagamento">
-                  <option>Pix</option>
-                  <option>Cartão</option>
-                  <option>Boleto</option>
-                </select>
+                <select class="btn btn-warning" id="formaPagamento"></select>
               </fieldset>
-
+              <div class="quantidade">
+                <label for="quantidadeVenda"
+                  class="form-label fs-4">Quantidade:</label>
+                <input type="number" id="quantidadeVenda" class="form-control"
+                  min="1" value="1">
+              </div>
               <button type="button" class="btn btn-outline-warning   mt-1"
                 id="btnComprar">Comprar</button>
             </form>
