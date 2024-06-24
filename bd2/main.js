@@ -24,12 +24,15 @@ function getProdutos() {
         produtoDiv.style.backgroundSize = "contain";
         produtoDiv.style.backgroundPosition = "center";
         produtoDiv.style.backgroundRepeat = "no-repeat";
+        produtoDiv.setAttribute('key', produto.codigo);
 
         const nome = document.createElement("h3");
         nome.textContent = produto.nome;
         produtoDiv.appendChild(nome);
 
         const descricao = document.createElement("p");
+        descricao.className = 'produto-descricao';
+        descricao.key = produto.codigo;
         descricao.textContent = produto.descricao; // Assumindo que há um campo 'descricao'
         produtoDiv.appendChild(descricao);
 
@@ -45,3 +48,13 @@ function getProdutos() {
 
 // Chama getProdutos() quando o DOM estiver completamente carregado
 document.addEventListener("DOMContentLoaded", getProdutos);
+
+document.addEventListener('click', (event) => {
+  if(event.target && (event.target.classList.contains('produto') || event.target.classList.contains('produto-descricao'))) {
+    let key = event.target.getAttribute('key');
+
+    localStorage.setItem('currentProduto', key);
+
+    window.location.href = 'produto.html';
+  }
+})
