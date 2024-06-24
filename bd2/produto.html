@@ -1,96 +1,94 @@
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
-  <link rel="stylesheet" href="node_modules/bootstrap/css/produtos.css">
-  <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/sidebar.css">
-  <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script defer src="node_modules/bootstrap/js/sidebar.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
-  <title>Produto</title>
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/css/produtos.css">
+    <script src="node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/sidebar.css">
+    <script defer src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script defer src="node_modules/bootstrap/js/sidebar.js"></script>
+    <script defer
+      src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <title>Produto</title>
+  </head>
 
-<body>
-  <div id="menu">
-    <div class="hamburger">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-    <div class="menu-inner">
-      <ul>
-        <li><button class="btn btn-dark"><a href="./index.html"
-              class="link-light link-underline-opacity-0">Index.html</a></button></li>
-        <li>Menu Item</li>
-        <li>Menu Item</li>
-        <li>Menu Item</li>
-        <li>Menu Item</li>
-        <li>Menu Item</li>
-      </ul>
-    </div>
-    <svg version="1.1" id="blob" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <path id="blob-path" d="M60,500H0V0h60c0,0,20,172,20,250S60,900,60,500z" />
-    </svg>
-  </div>
-  <header>
-    <nav class="navbar nav-main ">
-      <div class="container-fluid d-flex justify-content-evenly">
-        <form class="d-flex" role="search">
-          <input class="form-control border-warning me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-warning" type="submit">Search</button>
-        </form>
+  <body>
+    <div id="menu">
+      <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
       </div>
-    </nav>
-  </header>
-  <main>
-    <div class="main">
-      <div class="main-left">
-        <p class="fs-1 fw-semibold" id="titulo">Jaca</p>
-        <img src="https://cdn.awsli.com.br/600x450/163/163535/produto/5937241/3d8717e63a.jpg" alt="jaca" class="imagem"
-          id="imagem">
+      <div class="menu-inner">
+        <ul>
+          <li><button class="btn btn-dark"><a href="./index.html"
+                class="link-light link-underline-opacity-0">Index.html</a></button></li>
+          <li>Menu Item</li>
+          <li>Menu Item</li>
+          <li>Menu Item</li>
+          <li>Menu Item</li>
+          <li>Menu Item</li>
+        </ul>
       </div>
-      <div class="main-right">
-        <div class="informacoes">
-          <p class="fs-4">Grupo: <span id="grupo">comidinha HMMMMM</span></p>
-          <p class="fs-4">Preço: R$ <span id="preco">12</span>,00</p>
-          <p class="fs-4">Quantidade: <span id="quantidade">123</span> un</p>
-          <p class="fs-4">Fornecedor: <span id="fornecedor">Seu Zé</span></p>
-        </div>
-        <div class="pagamento">
-          <form>
-            <fieldset class="pagamento-opcao">
-              <legend>Forma de Pagamento</legend>
-              <select class="btn btn-warning" id="formaPagamento">
-                <option>Pix</option>
-                <option>Cartão</option>
-                <option>Boleto</option>
-              </select>
-            </fieldset>
-
-            <button type="button" class="btn btn-outline-warning   mt-1" id="btnComprar">Comprar</button>
+      <svg version="1.1" id="blob" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <path id="blob-path"
+          d="M60,500H0V0h60c0,0,20,172,20,250S60,900,60,500z" />
+      </svg>
+    </div>
+    <header>
+      <nav class="navbar nav-main ">
+        <div class="container-fluid d-flex justify-content-evenly">
+          <form class="d-flex" role="search">
+            <input class="form-control border-warning me-2" type="search"
+              placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-warning"
+              type="submit">Search</button>
           </form>
         </div>
-      </div>
-    </div>
-    <div class="descricao" style="padding: 20px">
-      <p class="fs-2 fw-semibold">Descrição:</p>
-      <p id="descricao">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Neque beatae non labore? Voluptates
-        voluptatibus nisi
-        provident, velit et reiciendis cumque suscipit nemo, eveniet optio quia cupiditate quidem adipisci itaque esse
-        magni quaerat quibusdam blanditiis. Fugiat necessitatibus nostrum, harum adipisci consequatur consequuntur dicta
-        laboriosam ipsum, doloremque dolore molestias autem. Optio, dignissimos nihil maxime molestiae porro, iusto
-        officiis magnam voluptatibus nostrum ipsum temporibus magni corporis. Soluta, rem! Est iure, perferendis
-        adipisci placeat asperiores incidunt! Adipisci officia beatae veritatis, eligendi dolore, sed culpa impedit
-        magni ipsam accusantium quaerat nisi consequuntur cumque, autem vero maxime cum. Voluptate veniam delectus dicta
-        dolores, veritatis aliquid quia.</p>
-    </div>
+      </nav>
+    </header>
+    <main>
+      <div class="main">
+        <div class="main-left">
+          <p class="fs-1 fw-semibold" id="titulo">Jaca</p>
+          <img src="#" alt class="imagem"
+            id="imagem">
+        </div>
+        <div class="main-right">
+          <div class="informacoes">
+            <p class="fs-4">Grupo: <span id="grupo"></span></p>
+            <p class="fs-4">Preço: R$ <span id="preco"></span></p>
+            <p class="fs-4">Quantidade: <span id="quantidade"></span> un</p>
+            <p class="fs-4">Fornecedor: <span id="fornecedor"></span></p>
+          </div>
+          <div class="pagamento">
+            <form>
+              <fieldset class="pagamento-opcao">
+                <legend>Forma de Pagamento</legend>
+                <select class="btn btn-warning" id="formaPagamento">
+                  <option>Pix</option>
+                  <option>Cartão</option>
+                  <option>Boleto</option>
+                </select>
+              </fieldset>
 
-  </main>
-  <script defer src="produto.js"></script>
-</body>
+              <button type="button" class="btn btn-outline-warning   mt-1"
+                id="btnComprar">Comprar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="descricao" style="padding: 20px">
+        <p class="fs-2 fw-semibold">Descrição:</p>
+        <p id="descricao"></p>
+      </div>
+
+    </main>
+    <script defer src="produto.js"></script>
+  </body>
 
 </html>
