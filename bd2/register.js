@@ -42,7 +42,7 @@ function postRegister() {
     })
     .then((response) => {
       const data = response.data;
-      localStorage.setItem("id", data.codigo);
+      // localStorage.setItem("id", data.codigo);
       window.location.href = "login.html";
     })
     .catch(function (error) {
