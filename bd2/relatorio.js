@@ -48,6 +48,11 @@ document.addEventListener("DOMContentLoaded", () => {
           detalhes.appendChild(detalhesPgt);
           detalhes.appendChild(detalhesQtt);
 
+          const horario = document.createElement("p");
+          horario.classList.add("compra-text", "fw-bold");
+          horario.textContent = `Horario: ${produto.horario}`;
+          cardContent.appendChild(horario);
+
           const preco = document.createElement("p");
           preco.classList.add("compra-text", "fw-bold");
           preco.textContent = `Preço: R$ ${produto.valor_total.toFixed(2)}`;
