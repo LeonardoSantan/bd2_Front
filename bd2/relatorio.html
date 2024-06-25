@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Relatorio</title>
+        <link rel="stylesheet"
+            href="./node_modules/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/main.css">
+        <link rel="stylesheet"
+            href="node_modules/bootstrap/dist/css/sidebar.css">
+        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/card.css">
+        <script defer
+            src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script defer
+            src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script defer src="relatorio.js"></script>
+        <script defer
+            src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+        <script defer src="node_modules/bootstrap/js/sidebar.js"></script>
+        <style>
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 16px;
+            padding: 10px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+            max-width: calc(100% - 20px); /* Calcula o máximo de largura com margem */
+            display: flex; /* Flex container para alinhar conteúdo */
+            flex-direction: row; /* Direção de linha para layout compacto */
+            align-items: center; /* Alinha itens ao centro verticalmente */
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-content {
+            flex: 1; /* Ocupa todo o espaço disponível */
+            padding-right: 10px; /* Espaçamento à direita para separar da imagem */
+        }
+
+        .card img {
+            max-width: 100px; /* Tamanho da imagem */
+            height: auto;
+            border-radius: 8px;
+            margin-left: auto; /* Empurra a imagem para a direita */
+        }
+    </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="produtos">
+                <h3 id="codigo"> teste</h3>
+            </div>
+        </div>
+    </body>
+</html>
