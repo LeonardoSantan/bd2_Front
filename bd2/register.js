@@ -17,7 +17,7 @@ function postRegister() {
   const numero = parseInt(document.getElementById("numero").value, 10);
   const cep = document.getElementById("CEP").value;
   const bairro = document.getElementById("bairro").value;
-  console.log(nome, regemail, regpass, cpf, logradouro, numero, cep, bairro);
+  // console.log(nome, regemail, regpass, cpf, logradouro, numero, cep, bairro);
   const urlRegister = "https://smsfranciscobeltrao.com.br/pessoa/";
 
   localStorage.setItem("nome", nome);
@@ -42,7 +42,7 @@ function postRegister() {
     })
     .then((response) => {
       const data = response.data;
-      localStorage.setItem("id", data.codigo);
+      // localStorage.setItem("id", data.codigo);
       window.location.href = "login.html";
     })
     .catch(function (error) {
