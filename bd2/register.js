@@ -13,9 +13,17 @@ function postRegister() {
   const regemail = document.getElementById("regemail").value;
   const regpass = document.getElementById("regpass").value;
   const cpf = document.getElementById("cpf").value;
+  if (cpf.length > 14) {
+    alert("faz o CPF direito ai marreco!");
+    return;
+  }
   const logradouro = document.getElementById("logradouro").value;
   const numero = parseInt(document.getElementById("numero").value, 10);
   const cep = document.getElementById("CEP").value;
+  if (cep.length > 8) {
+    alert("faz o CEP direito ai marreco!");
+    return;
+  }
   const bairro = document.getElementById("bairro").value;
   // console.log(nome, regemail, regpass, cpf, logradouro, numero, cep, bairro);
   const urlRegister = "https://smsfranciscobeltrao.com.br/pessoa/";
@@ -42,6 +50,8 @@ function postRegister() {
     })
     .then((response) => {
       const data = response.data;
+      console.log(data);
+      console.log(response);
       // localStorage.setItem("id", data.codigo);
       window.location.href = "login.html";
     })
